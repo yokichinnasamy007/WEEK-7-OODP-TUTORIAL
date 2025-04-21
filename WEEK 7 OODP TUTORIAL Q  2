@@ -1,0 +1,33 @@
+include <iostream>
+#include <string>
+using namespace std;
+
+class Book {
+private:
+    string name;
+    float price;
+
+public:
+    Book(string n, float p) : name(n), price(p) {}
+
+    friend void book_price(const Book&, const class Library&);
+};
+
+class Library {
+public:
+    void book_price(const Book& b) {
+        cout << "Book Name: " << b.name << endl;
+        cout << "Price: $" << b.price << endl;
+    }
+};
+
+void book_price(const Book& b, const Library& l) {
+    l.book_price(b);
+}
+
+int main() {
+    Book b1("C++ Programming", 299.99);
+    Library lib;
+    book_price(b1, lib);
+    return 0;
+}
