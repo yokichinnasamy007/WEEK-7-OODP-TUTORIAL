@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+// Inline function to add two numbers
+inline float add(float a, float b) {
+    return a + b;
+}
+
+// Inline function to subtract two numbers
+inline float subtract(float a, float b) {
+    return a - b;
+}
+
+// Inline function to multiply two numbers
+inline float multiply(float a, float b) {
+    return a * b;
+}
+
+// Inline function to divide two numbers
+inline float divide(float a, float b) {
+    return b != 0 ? a / b : 0; // Avoid division by zero
+}
+
+int main() {
+    float num1, num2;
+    char op;
+
+    // Input two numbers from the user
+    cout << "Enter two numbers: ";
+    cin >> num1 >> num2;
+
+    // Input the operation to perform
+    cout << "Enter operation (+, -, *, /): ";
+    cin >> op;
+
+    // Perform the selected operation
+    switch (op) {
+        case '+':
+            cout << "Result: " << add(num1, num2) << endl;
+            break;
+        case '-':
+            cout << "Result: " << subtract(num1, num2) << endl;
+            break;
+        case '*':
+            cout << "Result: " << multiply(num1, num2) << endl;
+            break;
+        case '/':
+            cout << "Result: " << divide(num1, num2) << endl;
+            break;
+        default:
+            cout << "Invalid operation" << endl;
+    }
+
+    return 0;
+}
